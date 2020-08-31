@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+
+    {% if ticker %}
+        {{ ticker }}
+    {% endif %}
+
+
+    <br/>
+    {% if api %}
+        {% if api == "Ticker Name Error..." %}
+            There was a problem with ticker symbol, please try again...
+        {% else %}
+
+        <h3>{{ api.companyName }}</h3>
+        <h5>Stock Ticker: {{ api.symbol }}</h5>
+        <h5>Exchange: {{ api.primaryExchange }}</h5>
+        <h5>Latest Price: {{ api.latestPrice }}</h5>
+        <h5>Last Close Price: {{ api.previousClose }}</h5>
+        <h5>MarketCap: {{ api.marketCap }}</h5>
+
+
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
